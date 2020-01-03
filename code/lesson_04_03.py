@@ -15,3 +15,4 @@ def solution(N, A):
         max_count = max(bins)
 
     return bins
+

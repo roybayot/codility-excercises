@@ -15,8 +15,8 @@ def solution2(A):
 
     abs_diff = []
     for i in range(1, len(A)):
-        left_sum = A[i]
-        right_sum = right_sum - A[i]
+        left_sum = left_sum + A[i - 1]
+        right_sum = right_sum - A[i - 1]
 
         abs_diff.append(abs(left_sum - right_sum))
     return min(abs_diff)

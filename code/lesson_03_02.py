@@ -40,8 +40,6 @@ def solution2(A):
 
 
 def search2(A):
-    print("Input array:")
-    print(A)
     len_A = len(A)
     start_A = A[0]
     end_A = A[-1]
@@ -53,11 +51,6 @@ def search2(A):
         mid_idx = len_A // 2
         left = A[:mid_idx]
         right = A[mid_idx:]
-
-        print("left")
-        print(left)
-        print("right")
-        print(right)
 
         if right[0] - left[-1] != 1:
             return left[-1] + 1

@@ -35,11 +35,14 @@ def solution2(A):
 
 
 def solution3(A):
+    """
+    100% codility
+    """
     A.sort()
     if A[0] == 1 and A[-1] == len(A):
         count = counting(A, A[-1])
         if sum(count[1:]) == len(count) - 1:
-            for x in count[i:]:
+            for x in count[1:]:
                 if x != 1:
                     return 0
             return 1

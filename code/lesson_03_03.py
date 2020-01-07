@@ -20,3 +20,24 @@ def solution2(A):
 
         abs_diff.append(abs(left_sum - right_sum))
     return min(abs_diff)
+
+
+def solution3(A):
+    if len(A) < 2:
+        return 0
+    elif len(A) == 2:
+        return abs(A[-1] - A[0])
+    else:
+        left_sum = A[0]
+        right_sum = sum(A[1:])
+        abs_diff = [abs(right_sum - left_sum)]
+        for i in range(1, len(A)):
+            left_sum = left_sum + A[i]
+            right_sum = right_sum - A[i]
+            abs_diff.append(abs(right_sum - left_sum))
+        return abs_diff
+
+
+"""
+[-10, -20, -30, -40, 100]
+"""

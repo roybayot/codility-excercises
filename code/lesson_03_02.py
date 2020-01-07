@@ -61,17 +61,41 @@ def search2(A):
             return search2(right)
 
 
-"""
-def binary_search(A):
-    A.sort()
-    first = A[0]
-    last = A[-1]
-    found = False
-    while (first <= last and not found):
-        mid_idx = len(A) // 2
-        if A[mid_idx] - A[0] != 1:
-            found = True
-            return A[0]+1
+# Working solution
+def search(A):
+    len_A = len(A)
+    start_A = A[0]
+    end_A = A[-1]
+
+    if len_A == 2 and end_A - start_A != 1:
+        return start_A + 1
+
+    else:
+        mid_idx = len_A // 2
+        left = A[:mid_idx]
+        right = A[mid_idx:]
+
+        if right[0] - left[-1] != 1:
+            return left[-1] + 1
+        elif (left[0] + len(left) - 1 != left[-1]):
+            return search(left)
+        elif (right[0] + len(right) - 1 != right[-1]):
+            return search(right)
         else:
-            if
-"""
+            return A[-1] + 1
+
+
+def solution(A):
+    # write your code in Python 3.6
+    if len(A) == 0:
+        return 1
+    elif len(A) == 1 and A[0] == 1:
+        return 2
+    elif len(A) == 1 and A[0] != 1:
+        return 1
+    else:
+        A.sort()
+        if A[0] != 1:
+            return 1
+        else:
+            return search(A)
